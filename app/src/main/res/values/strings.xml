@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DictionaryApp</string>
+
+    <!--  Messages  -->
+    <string name="unknown_error">Unknown error has occurred</string>
+    <string name="please_re_login">Please re login</string>
+    <string name="server_maintenance">Server maintenance</string>
+    <string name="server_error">Server error</string>
+    <string name="cannot_retrieve_data">Cannot retrieve data</string>
+    <string name="timeout_error">timeout</string>
+    <string name="network_error">Cannot connect to server, check your internet connection</string>
+</resources>
