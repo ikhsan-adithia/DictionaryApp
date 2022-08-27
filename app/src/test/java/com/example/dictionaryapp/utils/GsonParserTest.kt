@@ -133,4 +133,19 @@ class GsonParserTest {
         val then = result?.let { gsonParser.fromJson<TestModel>(it, TestModel::class.java) }
         assert(then == null)
     }
+
+    @Test
+    fun `toJson fail given wrong model`() {
+        // given
+        val data = TestModel("jane doe", 22, null)
+
+        // when
+        val result = gsonParser.toJson(data, String::class.java)
+
+        // then
+        assert(result == null)
+
+        val then = result?.let { gsonParser.fromJson<TestModel>(it, TestModel::class.java) }
+        assert(then == null)
+    }
 }

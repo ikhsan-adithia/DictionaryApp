@@ -38,7 +38,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion Versions.compose_version
     }
     packagingOptions {
         resources {
@@ -48,58 +48,58 @@ android {
 }
 
 dependencies {
+    implementation (Dependencies.coreKtx)
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//    androidTestImplementation "androidx.compose.ui:ui-test-junit4:${Versions.compose_version}"
 
     // Compose
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-    implementation 'androidx.activity:activity-compose:1.4.0'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
+    implementation (Dependencies.compose_ui)
+    implementation (Dependencies.compose_material)
+    implementation (Dependencies.compose_ui_tooling_preview)
+    debugImplementation (Dependencies.compose_ui_tooling)
+    implementation (Dependencies.activity_compose)
+
+    // lifecycle
+    implementation (Dependencies.lifecycle_runtime)
+    implementation (Dependencies.lifecycle_viewmodel_compose)
+    implementation (Dependencies.lifecycle_viewmodel_ktx)
 
     // retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation (Dependencies.retrofit)
+    implementation (Dependencies.retrofit_converter_gson)
+
+    // gson
+    implementation (Dependencies.gson)
 
     // okhttp
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+//    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
     // room
-    implementation "androidx.room:room-runtime:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
-
-    // Kotlin Extensions and Coroutines support for Room
-    implementation "androidx.room:room-ktx:2.4.2"
+    implementation (Dependencies.room_runtime)
+    kapt (Dependencies.room_compiler)
+    implementation (Dependencies.room_ktx)
 
     // coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
-
-    // Coroutine Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    implementation (Dependencies.kotlinx_coroutines_core)
+    implementation (Dependencies.kotlinx_coroutines_android)
 
     //Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-android-compiler:2.37"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    kapt "androidx.hilt:hilt-compiler:1.0.0"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    implementation (Dependencies.hilt_android)
+    kapt (Dependencies.hilt_android_compiler)
+    implementation (Dependencies.hilt_lifecycle_viewmodel)
+    kapt (Dependencies.hilt_compiler)
+    implementation (Dependencies.hilt_navigation_compose)
 
     // Local unit tests
-    testImplementation "androidx.test:core:1.4.0"
-    testImplementation "junit:junit:4.13.2"
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
-    testImplementation "com.google.truth:truth:1.1.3"
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.1"
-    testImplementation "io.mockk:mockk:1.10.5"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:1.1.0-alpha04"
+    testImplementation (TestDependencies.test_core_ktx)
+    testImplementation (TestDependencies.test_core)
+    testImplementation (TestDependencies.junit)
+    testImplementation (TestDependencies.core_testing)
+    testImplementation (TestDependencies.kotlinx_coroutines_test)
+    testImplementation (TestDependencies.google_truth)
+    testImplementation (TestDependencies.okhttp_mockwebserver)
+    testImplementation (TestDependencies.mock_io)
+    debugImplementation (TestDependencies.compose_ui_test)
 }

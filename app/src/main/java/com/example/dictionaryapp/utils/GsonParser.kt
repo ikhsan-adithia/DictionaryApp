@@ -14,9 +14,7 @@ class GsonParser(
     override fun <T> fromJson(json: String, type: Type): T? {
         return try {
             gson.fromJson<T>(json, type)
-        } catch (e: JsonSyntaxException) {
-            null
-        } catch (e: JsonIOException) {
+        } catch (e: Exception) {
             null
         }
     }
@@ -24,9 +22,7 @@ class GsonParser(
     override fun <T> toJson(obj: T, type: Type): String? {
         return try {
             gson.toJson(obj, type)
-        } catch (e: JsonSyntaxException) {
-            null
-        } catch (e: JsonIOException) {
+        } catch (e: Exception) {
             null
         }
     }
